@@ -1,0 +1,18 @@
+{
+  "name": "adpence-landing",
+  "compatibility_date": "2026-09-11",
+  "assets": {
+    "directory": "./src"
+  },
+  "main": "./src/worker.js",
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_sender_addresses": ["noreply@adpence.com"],
+      "destination_address": "support@adpence.com"
+    }
+  ],
+  "dependencies": {
+    "mimetext": "^4.0.0"
+  }
+}
