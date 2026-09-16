@@ -8,11 +8,7 @@
   "send_email": [
     {
       "name": "EMAIL",
-      "allowed_sender_addresses": ["noreply@adpence.com"],
-      "destination_address": "support@adpence.com"
+      "remote": true
     }
-  ],
-  "dependencies": {
-    "mimetext": "^4.0.0"
-  }
+  ]
 }

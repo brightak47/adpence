@@ -33,5 +33,6 @@ wrangler.jsonc     — Cloudflare Workers config with email binding
 ## How the contact form works
 
 The contact form on `/contact` sends a POST request to `/api/contact`.
-The Worker constructs an email using the `send_email` binding and sends it
-to `support@adpence.com` from `noreply@adpence.com`.
+The Worker sends the email via the `send_email` binding using the
+structured `env.EMAIL.send()` API — no external packages needed.
+Emails go to `support@adpence.com` from `noreply@adpence.com`.
