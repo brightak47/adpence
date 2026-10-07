@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "adpence",
+  "compatibility_date": "2026-09-11",
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "adpence.com/*",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.adpence.com/*",
+      "custom_domain": true
+    }
+  ]
+}
