@@ -18,11 +18,19 @@ export default function ContactSection() {
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
-    // Simulate instantaneous dispatch with fallback to mailto
+    const mailtoUrl = `mailto:support@adpence.com?subject=${encodeURIComponent(
+      `[Adpence Inquiry] ${formData.topic} - ${formData.name}`
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nTopic: ${formData.topic}\n\nMessage:\n${formData.message}`
+    )}`;
+    
+    // Direct launch email client while confirming submission
+    window.location.href = mailtoUrl;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 600);
+    }, 400);
   };
 
   return (
@@ -52,10 +60,10 @@ export default function ContactSection() {
                 Official Inquiries
               </span>
               <a
-                href="mailto:contact@adpence.com"
+                href="mailto:support@adpence.com"
                 className="text-lg font-bold text-white hover:text-purple-400 transition-colors font-mono flex items-center gap-2"
               >
-                contact@adpence.com
+                support@adpence.com
               </a>
               <p className="text-xs text-slate-400 mt-2">
                 Executive response within 24–48 business hours.
@@ -113,7 +121,7 @@ export default function ContactSection() {
                       Send Another Inquiry
                     </button>
                     <a
-                      href={`mailto:contact@adpence.com?subject=${encodeURIComponent(
+                      href={`mailto:support@adpence.com?subject=${encodeURIComponent(
                         formData.topic + " - " + formData.name
                       )}&body=${encodeURIComponent(formData.message)}`}
                       className="px-5 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider text-white bg-purple-600 hover:bg-purple-500"
